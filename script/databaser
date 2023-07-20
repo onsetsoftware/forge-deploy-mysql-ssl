@@ -4,7 +4,7 @@
 
 require "./setup.php";
 echo "Connecting to database\n";
-$certFile = getenv('CERT_FILE');
+$certFile = $_ENV['CERT_FILE'];
 
 $options = [
     PDO::MYSQL_ATTR_SSL_CA => $certFile,
