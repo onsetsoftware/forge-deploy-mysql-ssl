@@ -1,0 +1,7 @@
+{
+    "require": {
+        "PHP": "^8.2",
+        "vlucas/phpdotenv": "^5.5",
+        "ext-pdo": "*"
+    }
+}

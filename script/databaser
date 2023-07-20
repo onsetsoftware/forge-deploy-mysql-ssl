@@ -1,0 +1,21 @@
+#!/usr/local/bin/php
+
+<?php
+
+require "./setup.php";
+echo "Connecting to database\n";
+$certFile = getenv('CERT_FILE');
+
+$options = [
+    PDO::MYSQL_ATTR_SSL_CA => $certFile,
+    PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => true,
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+];
+
+$dsn = "mysql:host={$_ENV["HOST"]};dbname={$_ENV["DATABASE"]}";
+$options = [
+    PDO::MYSQL_ATTR_SSL_CA => "/etc/ssl/cert.pem",
+];
+$pdo = new PDO($dsn, $_ENV["USERNAME"], $_ENV["PASSWORD"], $options);
+
+echo "Connected to database\n";
